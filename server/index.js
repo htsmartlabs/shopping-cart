@@ -7,6 +7,8 @@ const morgan = require('morgan');
 //Adding the sub routes
 const product = require('./routes/product');
 const user = require('./routes/user');
+const country = require('./routes/country');
+const cart = require('./routes/cart');
 
 //creating an express application
 const app = express();
@@ -24,6 +26,8 @@ app.get('/',(req,res,next)=>{
 //sending all products to product route
 app.use('/product',product);
 app.use('/user',user);
+app.use('/country',country);
+app.use('/cart',cart);
 
 //error handling
 app.use((error,req,res,next)=>{

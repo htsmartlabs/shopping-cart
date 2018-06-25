@@ -1,0 +1,21 @@
+<div class="container">
+    <h4 class="card-title">My Product List</h4>
+    <div *ngFor = "let product of products; let i = index">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="product.imagePath" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          <div class="row">
+            <div class="col-md-6">
+                <h6 class="card-text">{{product.price | currency}}</h6>
+            </div>
+            <div class="col-md-6">
+                <h6 class="card-text">Available: {{product.quantity}}</h6>
+            </div>
+          </div>
+            <a href="#" class="btn btn-primary" (click)="buyNow(product)">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
