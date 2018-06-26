@@ -1,65 +1,66 @@
-<form>
+<form (ngSubmit)= "registerForm(regForm)" #regForm = "ngForm">
     <div class="form-row">
       <div class="form-group col-md-12">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="John Doe">
+        <input type="text" class="form-control" id="name" placeholder="John Doe" required [(ngModel)]="user.name" name="name" #name="ngModel">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Email">
+        <input type="email" class="form-control" id="email" placeholder="Email" required email [(ngModel)]="user.email" name="email" #email="ngModel">
+        <div class = "alert alert-danger" *ngIf="!email.valid && email.touched" >Email name is required</div>
       </div>
       <div class="form-group col-md-4">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" class="form-control" id="password" placeholder="Password" required [(ngModel)]="user.password" name="password" #password="ngModel">
       </div>
       <div class="form-group col-md-4">
         <label for="cpassword">Retype Password</label>
-        <input type="password" class="form-control" id="cpassword" placeholder="Retype Password">
+        <input type="password" class="form-control" id="cpassword" placeholder="Retype Password" required [(ngModel)]="user.cPassword" name="cpassword" #cpassword="ngModel">
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required [(ngModel)]="user.address.street" name="street" #street="ngModel">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputAddress2">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" [(ngModel)]="user.address.houseNo" name="houseNo" #houseNo="ngModel">
       </div>
       <div class="form-group col-md-6">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone" placeholder="+0000000000">
+        <input type="text" class="form-control" id="phone" placeholder="+0000000000" [(ngModel)]="user.phone" name="phone" #phone="ngModel">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="inputCity">City</label>
-        <select id="inputCity" class="form-control">
+        <select id="inputCity" class="form-control" required [(ngModel)]="user.address.city" name="city" #city="ngModel">
           <option selected>Choose...</option>
           <option>...</option>
         </select>
       </div>
       <div class="form-group col-md-3">
         <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
+        <select id="inputState" class="form-control" required [(ngModel)]="user.address.province" name="province" #province="ngModel">
           <option selected>Choose...</option>
           <option>...</option>
         </select>
       </div>
       <div class="form-group col-md-3">
         <label for="inputCountry">Country</label>
-        <select id="inputCountry" class="form-control">
+        <select id="inputCountry" class="form-control" required [(ngModel)]="user.address.country" name="country" #country="ngModel">
           <option selected>Choose...</option>
           <option>...</option>
         </select>
       </div>
       <div class="form-group col-md-3">
         <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" required [(ngModel)]="user.address.postalCode" name="postalCode" #postalCode="ngModel">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>&nbsp;
-    <button type="submit" class="btn btn-primary" routerLink="/login">Login</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">Register</button>&nbsp;
+    <button class="btn btn-primary" routerLink="/login">Login</button>
   </form>

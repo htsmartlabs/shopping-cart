@@ -40,6 +40,7 @@ router.post('/',(req,res,next)=>{
                                 email: req.body.email,
                                 password: hashPassword,
                                 phone: req.body.phone,
+                                admin:req.body.admin,
                                 address:{
                                     street:req.body.address.street,
                                     houseNo:req.body.address.houseNo,

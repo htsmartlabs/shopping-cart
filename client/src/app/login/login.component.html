@@ -1,15 +1,17 @@
 <div class="col-sm-12">
-  <form>
+  <form (ngSubmit)="userLogin(loginForm)" #loginForm = "ngForm">
     <div class="form-group">
       <label for="email">Email Address</label>
-      <input type="email" class="form-control" name="email" placeholder="Enter your email address" >
+      <input type="email" class="form-control" required email [(ngModel)]="user.email" name="email" #email = "ngModel" placeholder="Enter your email address" >
+      <div class = "alert alert-danger" *ngIf="!email.valid && email.touched" >Email name is required</div>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Enter your password" >
+      <input ngModel type="password" class="form-control" required [(ngModel)]="user.password" name="password" #password = "ngModel" placeholder="Enter your password" >
+      <span class = "help-block" *ngIf="!password.valid && password.touched" >Password is required</span>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Login</button>&nbsp;
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" >Login</button>&nbsp;
       <button class="btn btn-primary" routerLink="/register">Register</button>
     </div>
   </form>
