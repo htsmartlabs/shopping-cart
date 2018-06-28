@@ -14,7 +14,16 @@
                 <h6 class="card-text">Available: {{product.quantity}}</h6>
             </div>
           </div>
-            <a href="#" class="btn btn-primary" (click)="buyNow(product)">Buy Now</a>
+          <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-primary" (click)="buyNow(product)">Buy Now</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary" (click)="addQuantity(1)">+</button>
+                <input type="text" name="quantity" [(ngModel)]="quantity" placeholder="0" size="2">
+                <button class="btn btn-primary" (click)="addQuantity(-1)">-</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -10,5 +10,11 @@ import { Country } from '../model/country';
 })
 export class CountryService {
 
-  constructor() { }
+  readonly URL = 'http://localhost:3000/country';
+
+  constructor( private http: HttpClient) { }
+
+  getAllCountries(){
+    return this.http.get(this.URL);
+  }
 }

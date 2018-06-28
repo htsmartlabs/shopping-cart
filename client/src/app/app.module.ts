@@ -11,6 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductService } from './service/product.service';
+import { UserService } from './service/user.service';
+import { CountryService } from './service/country.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ProductService } from './service/product.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, UserService, CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

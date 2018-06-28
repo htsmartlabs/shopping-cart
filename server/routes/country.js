@@ -2,11 +2,11 @@
 const express = require('express');
 const router = express.Router();
 const guard = require('../config/guard');
-
+const objId = require('mongoose').Types.ObjectId;
 const Country = require('../model/country');
 
 //get all countries
-router.get('/',guard,(req,res,next)=>{
+router.get('/',(req,res,next)=>{
     Country.find()
     .exec()
     .then((data)=>{
@@ -16,7 +16,7 @@ router.get('/',guard,(req,res,next)=>{
 });
 
 //add a Country
-router.post('/',guard,(req,res,next)=>{
+router.post('/',(req,res,next)=>{
 
     const country = new Country({
         country:req.body.country,

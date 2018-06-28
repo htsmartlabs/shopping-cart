@@ -1,7 +1,7 @@
 export class Country {
   _id: string;
   country: string;
-  province:[{
+  province: [{
     name: string;
     city: string[];
   }];
